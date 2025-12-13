@@ -1,3 +1,3 @@
-const BaseUrl = 'http://localhost:4000'
+const BaseUrl = 'https://zepto-clone-backend-aqqn.vercel.app/'
 
 export default BaseUrl

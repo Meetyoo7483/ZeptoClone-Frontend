@@ -328,6 +328,7 @@ const Home = () => {
 
   const fetchProductCategory = async () => {
     try {
+      console.log(BaseUrl);
       const result = await axios.get(`${BaseUrl}/user/get/Product`)
       if (result?.data?.success) {
         setproductcategory(result?.data?.data)

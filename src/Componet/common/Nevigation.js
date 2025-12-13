@@ -134,10 +134,10 @@ function Nevigation({ children }) {
               <IoSearchOutline className='text-[25px] absolute top-3 left-2' />
               <input type='text' placeholder='Search for "amul butter"' className='w-full h-full rounded-md pl-10 focus:outline-none placeholder:text-black font-uifontfamily placeholder:font-uifontfamily' />
             </div>
-            <div onClick={() => navigate('/Order')} className='hidden sm:block hover:cursor-pointer'>
+            {/* <div onClick={() => navigate('/Order')} className='hidden sm:block hover:cursor-pointer'>
               <MdPedalBike className='text-[25px] mx-auto' />
               <h2 className='font-uifontfamily text-center'>Rider</h2>
-            </div>
+            </div> */}
             <div onClick={() => setislogin(true)} className='hidden sm:block hover:cursor-pointer'>
               <CgProfile className='text-[25px] mx-auto' />
               <h2 className='font-uifontfamily text-center'>Profile</h2>
