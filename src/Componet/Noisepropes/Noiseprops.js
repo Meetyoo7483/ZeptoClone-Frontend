@@ -29,13 +29,50 @@ const Noiseprops = ({ data }) => {
             <MdOutlineKeyboardArrowLeft />
         </div>
     );
+    // const Noisecarousl = {
+    //     dots: false,
+    //     infinite: false,
+    //     speed: 500,
+    //     slidesToShow: 7,
+    //     slidesToScroll: 5,
+    //     arrows: true,
+    //     nextArrow: <NextArrow />,
+    //     prevArrow: <PrevArrow />,
+    //     responsive: [
+    //         {
+    //             breakpoint: 1024,
+    //             settings: {
+    //                 slidesToShow: 4,
+    //                 slidesToScroll: 1
+    //             }
+    //         },
+    //         {
+    //             breakpoint: 766,
+    //             settings: {
+    //                 slidesToShow: 2,
+    //                 slidesToScroll: 1
+    //             }
+    //         },
+    //         {
+    //             breakpoint: 640,
+    //             settings: {
+    //                 slidesToShow: 2,   // only 1 slide per view on small screens
+    //                 slidesToScroll: 1,
+    //                 infinite: false,
+    //                 arrows: false      // optional: hide arrows on mobile
+    //             }
+    //         }
+    //     ]
+    // }
     const Noisecarousl = {
         dots: false,
         infinite: false,
         speed: 500,
         slidesToShow: 7,
-        slidesToScroll: 5,
+        slidesToScroll: 1,
         arrows: true,
+        swipeToSlide: true,
+        draggable: true,
         nextArrow: <NextArrow />,
         prevArrow: <PrevArrow />,
         responsive: [
@@ -43,27 +80,26 @@ const Noiseprops = ({ data }) => {
                 breakpoint: 1024,
                 settings: {
                     slidesToShow: 4,
-                    slidesToScroll: 1
                 }
             },
             {
-                breakpoint: 766,
+                breakpoint: 768,
                 settings: {
                     slidesToShow: 2,
-                    slidesToScroll: 1
                 }
             },
             {
                 breakpoint: 640,
                 settings: {
-                    slidesToShow: 1,   // only 1 slide per view on small screens
+                    slidesToShow: 2,   // 2 products on mobile
                     slidesToScroll: 1,
-                    infinite: false,
-                    arrows: false      // optional: hide arrows on mobile
+                    arrows: false,      // hide arrows for swipe experience
+                    centerMode: false,
                 }
             }
         ]
-    }
+    };
+
     return (
         <>
             <div>
@@ -71,7 +107,8 @@ const Noiseprops = ({ data }) => {
                     <Slider {...Noisecarousl}>
                         {data.map((item, index) => (
                             <div key={index} className=' p-2'>
-                                <div className='h-[330px] w-[160px] relative shadow-md  bg-white py-3 px-2 rounded-md'>
+                                {/* <div className='h-[330px] w-[160px] relative shadow-md  bg-white py-3 px-2 rounded-md'> */}
+                                <div className='h-[330px] w-full sm:w-[160px] relative shadow-md bg-white py-3 px-2 rounded-md'>
                                     {/* <img src={Offertag} className='h-[37px] z-50 absolute' /> */}
                                     <img src={`${BaseUrl}/${item?.product_Image}`} className='h-[158px] w-[158px]-mt-[50px] rounded-md hover:scale-105 ease-in-out transition-all shadow-md' />
                                     {/* <p className='-mt-[155px] ml-2 z-50  absolute text-white text-[10px]'>{item.discount}<br />off</p> */}

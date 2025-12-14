@@ -13,3 +13,11 @@
 body {
   font-family: 'Inter', sans-serif;
 }
+.slick-slider, .slick-list {
+  width: 100% !important;
+  overflow: hidden !important;
+}
+
+.slick-slide > div {
+  width: 100% !important;
+}
