@@ -9,7 +9,7 @@ import { GoChevronRight } from 'react-icons/go';
 import BaseUrl from '../service/BaseUrl';
 
 
-const Coffeepropes = ({data,bgcolour,title,titlecolor,description,btncolor}) => {
+const Coffeepropes = ({ data, bgcolour, title, titlecolor, description, btncolor }) => {
   const NextArrow = ({ onClick }) => (
     <div
       className="absolute top-1/2 right-[10px] transform -translate-y-1/2 bg-black text-white rounded-full w-8 h-8 flex items-center justify-center cursor-pointer z-10"
@@ -55,8 +55,10 @@ const Coffeepropes = ({data,bgcolour,title,titlecolor,description,btncolor}) => 
       {
         breakpoint: 640,
         settings: {
-          slidesToShow: 2,
-          slidesToScroll: 2
+          slidesToShow: 1,   // only 1 slide per view on small screens
+          slidesToScroll: 1,
+          infinite: false,
+          arrows: false      // optional: hide arrows on mobile
         }
       }
     ]
@@ -65,10 +67,10 @@ const Coffeepropes = ({data,bgcolour,title,titlecolor,description,btncolor}) => 
     <>
       <div className='grid grid-cols-1 sm:grid-cols-4 h-full w-full p-3 md:p-10 space-y-10 sm:space-y-0 rounded-md ' style={{ backgroundColor: bgcolour }} >
         <div className='h-[252px] w-[272px] font-uifontfamily flex flex-col gap-4'>
-          <p className='tracking-[5px]' style={{color:titlecolor}} >{title}</p>
-          <p className='font-semibold text-[35px]' style={{color:titlecolor}} >{description}</p>
+          <p className='tracking-[5px]' style={{ color: titlecolor }} >{title}</p>
+          <p className='font-semibold text-[35px]' style={{ color: titlecolor }} >{description}</p>
           <div>
-            <button type='button' className='text-white font-semibold flex items-center gap-2 text-[19px] rounded-2xl py-4 px-10' style={{backgroundColor:btncolor,color: 'rgb(255, 241, 236)'}} >More Items<GoChevronRight /></button>
+            <button type='button' className='text-white font-semibold flex items-center gap-2 text-[19px] rounded-2xl py-4 px-10' style={{ backgroundColor: btncolor, color: 'rgb(255, 241, 236)' }} >More Items<GoChevronRight /></button>
           </div>
         </div>
         <div className='col-span-3 sm:px-10'>

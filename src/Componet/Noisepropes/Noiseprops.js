@@ -10,7 +10,7 @@ import toast from 'react-hot-toast';
 
 const Noiseprops = ({ data }) => {
 
-    
+
 
     const NextArrow = ({ onClick }) => (
         <div
@@ -56,8 +56,10 @@ const Noiseprops = ({ data }) => {
             {
                 breakpoint: 640,
                 settings: {
-                    slidesToShow: 2,
-                    slidesToScroll: 2
+                    slidesToShow: 1,   // only 1 slide per view on small screens
+                    slidesToScroll: 1,
+                    infinite: false,
+                    arrows: false      // optional: hide arrows on mobile
                 }
             }
         ]
@@ -90,7 +92,7 @@ const Noiseprops = ({ data }) => {
                                                     image: item.product_Image
                                                 });
                                                 // Optionally, trigger a state change or notification
-                                                
+
                                             }}
                                             className='outline outline-[#EF4372] hover:bg-[#EF4372] hover:text-white outline-1 rounded-md p-2 px-4 text-[#EF4372] flex items-center gap-2'
                                         >
