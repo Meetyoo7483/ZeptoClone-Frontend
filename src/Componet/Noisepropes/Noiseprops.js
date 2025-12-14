@@ -10,7 +10,7 @@ import toast from 'react-hot-toast';
 
 const Noiseprops = ({ data }) => {
 
-
+    
 
     const NextArrow = ({ onClick }) => (
         <div
@@ -31,20 +31,37 @@ const Noiseprops = ({ data }) => {
     );
     const Noisecarousl = {
         dots: false,
-        infinite: true,        // smoother on mobile
+        infinite: false,
         speed: 500,
         slidesToShow: 7,
-        slidesToScroll: 1,
+        slidesToScroll: 5,
         arrows: true,
         nextArrow: <NextArrow />,
         prevArrow: <PrevArrow />,
         responsive: [
-            { breakpoint: 1024, settings: { slidesToShow: 4, slidesToScroll: 1 } },
-            { breakpoint: 768, settings: { slidesToShow: 2, slidesToScroll: 1 } },
-            { breakpoint: 480, settings: { slidesToShow: 1, slidesToScroll: 1 } },
+            {
+                breakpoint: 1024,
+                settings: {
+                    slidesToShow: 4,
+                    slidesToScroll: 1
+                }
+            },
+            {
+                breakpoint: 766,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 1
+                }
+            },
+            {
+                breakpoint: 640,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 2
+                }
+            }
         ]
-    };
-
+    }
     return (
         <>
             <div>
@@ -73,7 +90,7 @@ const Noiseprops = ({ data }) => {
                                                     image: item.product_Image
                                                 });
                                                 // Optionally, trigger a state change or notification
-
+                                                
                                             }}
                                             className='outline outline-[#EF4372] hover:bg-[#EF4372] hover:text-white outline-1 rounded-md p-2 px-4 text-[#EF4372] flex items-center gap-2'
                                         >
