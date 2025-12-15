@@ -14,6 +14,8 @@ const Noiseprops = ({ data }) => {
 
 
 
+
+
     const NextArrow = ({ onClick }) => (
         <div
             className="absolute top-1/2 right-[10px] transform -translate-y-1/2 bg-black text-white rounded-full w-8 h-8 flex items-center justify-center cursor-pointer z-10"
@@ -117,16 +119,18 @@ const Noiseprops = ({ data }) => {
                                     <p className='text-[#586274] text-[13px] py-1 line-clamp-2'>{item.product_description}</p>
                                     <div className='flex justify-between items-center'>
                                         <div>
-                                            <p className='py-1 font-semibold'>₹{item.product_price}</p>
-                                            <span className='line-through text-[14px] text-gray-400'>₹{item.product_discount_price}</span>
+                                            <p className='py-1 font-semibold'>₹{item.product_discount_price}</p>
+                                            <span className='line-through text-[14px] text-gray-400'>₹{item.product_price}</span>
                                         </div>
                                         {/* // In your product map */}
                                         <button
-                                            onClick={() => {
+                                            onClick={(e) => {
+                                                // prevent card click navigation
+                                                e.stopPropagation();
                                                 addToCart({
-                                                    id: item._id,                     // Or appropriate unique id
-                                                    name: item.product_Name,          // Adapt field names
-                                                    price: item.product_price,                // Provide all required product fields
+                                                    id: item._id,
+                                                    name: item.product_Name,
+                                                    price: item.product_price,
                                                     image: item.product_Image
                                                 });
                                                 // Optionally, trigger a state change or notification
