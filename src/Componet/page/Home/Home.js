@@ -32,11 +32,12 @@ import samosa from '../../assets/Samosa.png'
 import { PiCookingPotBold } from 'react-icons/pi';
 import axios from 'axios';
 import BaseUrl from '../../service/BaseUrl';
+import { useNavigate } from 'react-router-dom';
 
 
 const NextArrow = ({ onClick }) => (
   <div
-    className="absolute top-1/2 right-[10px] transform -translate-y-1/2 bg-black text-white rounded-full w-8 h-8 flex items-center justify-center cursor-pointer z-10"
+    className="absolute top-1/2 right-[12px] transform -translate-y-1/2 bg-black text-white rounded-full w-8 h-8 flex items-center justify-center cursor-pointer z-10"
     onClick={onClick}
   >
     <MdOutlineKeyboardArrowRight />
@@ -45,7 +46,7 @@ const NextArrow = ({ onClick }) => (
 
 const PrevArrow = ({ onClick }) => (
   <div
-    className="absolute top-1/2 left-[10px] transform -translate-y-1/2 bg-black text-white rounded-full w-8 h-8 flex items-center justify-center cursor-pointer z-10"
+    className="absolute top-1/2 left-[0px] transform -translate-y-1/2 bg-black text-white rounded-full w-8 h-8 flex items-center justify-center cursor-pointer z-10"
     onClick={onClick}
   >
     <MdOutlineKeyboardArrowLeft />
@@ -53,6 +54,8 @@ const PrevArrow = ({ onClick }) => (
 );
 
 const Home = () => {
+  const navigate = useNavigate();
+
   const [productcategory, setproductcategory] = useState([])
 
   const [imgsettings, setimgsettings] = useState([
@@ -466,7 +469,7 @@ const Home = () => {
   }
 
   // FoodCarosarl
-    const fetchUserProductCategoryFoodCarosarl = async () => {
+  const fetchUserProductCategoryFoodCarosarl = async () => {
     try {
       const result = await axios.get(`${BaseUrl}/user/get/Product/FoodCarosarl`)
       if (result?.data?.success) {
@@ -491,15 +494,25 @@ const Home = () => {
     fetchUserProductCategoryElectronics()
     fetchUserProductCategoryFoodCarosarl()
   }, [])
-// console.log(fetchUserProductCategoryFoodCarosarl);
+  // console.log(fetchUserProductCategoryFoodCarosarl);
 
   return (
     <>
       <div className="my-8 mx-4">
         <Slider {...settings}>
-          {productcategory.map((item, index) => (
+          {/* {productcategory.map((item, index) => (
             <div key={index} className='w-[100px] h-[100px]'>
               <img src={`${BaseUrl}/${item?.product_Image}`} className='w-[80px] h-[80px] mx-auto' />
+              <h1 className='font-semibold font-uifontfamily text-center text-[14px]'>{item?.product_Name}</h1>
+            </div>
+          ))} */}
+          {productcategory.map((item, index) => (
+            <div
+              key={index}
+              onClick={() => navigate(`/product/${item._id}`)}
+              className='w-[100px] h-[100px] cursor-pointer'
+            >
+              <img src={`${BaseUrl}/${item?.product_Image}`} alt={item?.product_Name} className='w-[80px] h-[80px] mx-auto' />
               <h1 className='font-semibold font-uifontfamily text-center text-[14px]'>{item?.product_Name}</h1>
             </div>
           ))}
@@ -509,19 +522,19 @@ const Home = () => {
 
       <div className='grid grid-cols-1 sm:grid-cols-2 px-3 space-y-4 sm:space-y-4 sm:space-x-4'>
         <div className='col-span-1 sm:col-span-2'>
-          <img src={Paancorner1} className='w-full h-[183px]' />
+          <img src={Paancorner1} alt="Paan corner banner" className='w-full h-[183px]' />
         </div>
 
         <div>
           <div>
-            <img src={Supersonic} />
+            <img src={Supersonic} alt="Supersonic banner" />
           </div>
           <div className='bg-black px-6 py-6 rounded-bl-[20px] rounded-br-[20px]'>
             <Slider {...Imgsettings} >
               {imgsettings.map((item, index) => (
-                <a href='#' key={index}>
-                  <img src={item} className='w-[100px] h-[120px]' />
-                </a>
+                <div key={index}>
+                  <img src={item} alt="Product item" className='w-[100px] h-[120px]' />
+                </div>
               ))}
             </Slider>
           </div>

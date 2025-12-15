@@ -8,6 +8,7 @@ import Profile from './Componet/page/Home/Profile';
 import Order from './Componet/page/Order';
 import CategoryPage from './Componet/page/CategoryPage';
 import { Toaster } from 'react-hot-toast';
+import ProductDetail from './Componet/page/ProductDetail';
 
 
 
@@ -25,6 +26,7 @@ function App() {
           {/* <Route path={'/Otp'} element={<Otp />} /> */}
           <Route path={'/Order'} element={<Order />} />
           <Route path="/category/:id" element={<CategoryPage />} />
+           <Route path="/product/:productId" element={<ProductDetail />} />
         </Routes>
       </Nevigation>
     </>

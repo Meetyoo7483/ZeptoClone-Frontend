@@ -7,12 +7,14 @@ import { FaRegBell } from 'react-icons/fa';
 import { MdOutlineKeyboardArrowLeft, MdOutlineKeyboardArrowRight } from 'react-icons/md';
 import { GoChevronRight } from 'react-icons/go';
 import BaseUrl from '../service/BaseUrl';
+import { useNavigate } from 'react-router-dom';
 
 
 const Coffeepropes = ({ data, bgcolour, title, titlecolor, description, btncolor }) => {
+  const navigate = useNavigate();
   const NextArrow = ({ onClick }) => (
     <div
-      className="absolute top-1/2 right-[10px] transform -translate-y-1/2 bg-black text-white rounded-full w-8 h-8 flex items-center justify-center cursor-pointer z-10"
+      className="absolute top-1/2 right-[20px] transform -translate-y-1/2 bg-black text-white rounded-full w-8 h-8 flex items-center justify-center cursor-pointer z-10"
       onClick={onClick}
     >
       <MdOutlineKeyboardArrowRight />
@@ -21,7 +23,7 @@ const Coffeepropes = ({ data, bgcolour, title, titlecolor, description, btncolor
 
   const PrevArrow = ({ onClick }) => (
     <div
-      className="absolute top-1/2 left-[10px] transform -translate-y-1/2 bg-black text-white rounded-full w-8 h-8 flex items-center justify-center cursor-pointer z-10"
+      className="absolute top-1/2 left-[0px] transform -translate-y-1/2 bg-black text-white rounded-full w-8 h-8 flex items-center justify-center cursor-pointer z-10"
       onClick={onClick}
     >
       <MdOutlineKeyboardArrowLeft />
@@ -112,12 +114,11 @@ const Coffeepropes = ({ data, bgcolour, title, titlecolor, description, btncolor
         <div className='col-span-3 sm:px-10'>
           <Slider {...coffeecarousl}>
             {data.map((item, index) => (
-              <div key={index} className=' p-2'>
-                {/* <div className='h-[330px] w-[170px] relative shadow-md  bg-white py-3 px-2 m-2 rounded-md'> */}
-                <div className='h-[330px] w-full sm:w-[170px] relative shadow-md bg-white py-3 px-2 rounded-md'>
+              <div key={index} className='p-2 cursor-pointer' onClick={() => navigate(`/product/${item._id}`)}>
+                <div className='h-[330px] w-full sm:w-[170px] relative shadow-md bg-white py-3 px-2 rounded-md hover:shadow-lg transition-shadow'>
 
                   {/* <img src={Offertag} className='h-[37px] z-50 absolute' /> */}
-                  <img src={`${BaseUrl}/${item?.product_Image}`} className='h-[158px] w-[158px]-mt-[50px] rounded-md hover:scale-105 ease-in-out transition-all' />
+                  <img src={`${BaseUrl}/${item?.product_Image}`} alt={item.product_Name || 'product'} className='h-[158px] w-[158px] rounded-md hover:scale-105 ease-in-out transition-all' />
                   {/* <p className='-mt-[155px] ml-2 z-50  absolute text-white text-[10px]'>{item.discount}<br />off</p> */}
                   <p className='text-nowrapwrap py-1 h-[50px]'>{item.product_Name}</p>
                   <p className='text-[#586274] py-1 text-[13px] line-clamp-2'>{item.product_description}</p>

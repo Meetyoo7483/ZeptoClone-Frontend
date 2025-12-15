@@ -1,3 +1,3 @@
-const BaseUrl = 'https://zepto-clone-backend-aqqn.vercel.app'
+const BaseUrl = 'https://zeptoclone-backend.onrender.com'
 
 export default BaseUrl

@@ -1,21 +1,19 @@
 import React from 'react'
 import BaseUrl from '../service/BaseUrl'
 import { addToCart } from '../util/cartUtils';
+import { useNavigate } from 'react-router-dom';
 
 const CategorypageProps = ({ data }) => {
+  const navigate = useNavigate();
   return (
-    <div className="grid gap-4
-                    grid-cols-1
-                    sm:grid-cols-2
-                    md:grid-cols-3
-                    lg:grid-cols-6
-                    px-2">
+    <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 px-2">
       {data.map((item, index) => (
         <div
           key={index}
-          className="p-2"
+          className="p-2 cursor-pointer"
+          onClick={() => navigate(`/product/${item._id}`)}
         >
-          <div className="h-[330px] relative shadow-md bg-white py-3 px-2 rounded-md">
+          <div className="h-[330px] relative shadow-md bg-white py-3 px-2 rounded-md hover:shadow-lg transition-shadow">
             <img
               src={`${BaseUrl}/${item?.product_Image}`}
               className="h-[158px] w-[158px] mx-auto rounded-md hover:scale-105 ease-in-out transition-all shadow-md"

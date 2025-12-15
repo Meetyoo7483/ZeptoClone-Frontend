@@ -7,8 +7,10 @@ import { MdOutlineKeyboardArrowLeft, MdOutlineKeyboardArrowRight } from 'react-i
 import BaseUrl from '../service/BaseUrl';
 import { addToCart } from '../util/cartUtils';
 import toast from 'react-hot-toast';
+import { useNavigate } from 'react-router-dom';
 
 const Noiseprops = ({ data }) => {
+  const navigate = useNavigate();
 
 
 
@@ -106,11 +108,10 @@ const Noiseprops = ({ data }) => {
                 <div>
                     <Slider {...Noisecarousl}>
                         {data.map((item, index) => (
-                            <div key={index} className=' p-2'>
-                                {/* <div className='h-[330px] w-[160px] relative shadow-md  bg-white py-3 px-2 rounded-md'> */}
-                                <div className='h-[330px] w-full sm:w-[160px] relative shadow-md bg-white py-3 px-2 rounded-md'>
+                            <div key={index} className='p-2 cursor-pointer' onClick={() => navigate(`/product/${item._id}`)}>
+                                <div className='h-[330px] w-full sm:w-[160px] relative shadow-md bg-white py-3 px-2 rounded-md hover:shadow-lg transition-shadow'>
                                     {/* <img src={Offertag} className='h-[37px] z-50 absolute' /> */}
-                                    <img src={`${BaseUrl}/${item?.product_Image}`} className='h-[158px] w-[158px]-mt-[50px] rounded-md hover:scale-105 ease-in-out transition-all shadow-md' />
+                                    <img src={`${BaseUrl}/${item?.product_Image}`} alt={item.product_Name} className='h-[158px] w-[158px] rounded-md hover:scale-105 ease-in-out transition-all shadow-md' />
                                     {/* <p className='-mt-[155px] ml-2 z-50  absolute text-white text-[10px]'>{item.discount}<br />off</p> */}
                                     <p className='truncate text-[15px] py-1 h-[50px]'>{item.product_Name}</p>
                                     <p className='text-[#586274] text-[13px] py-1 line-clamp-2'>{item.product_description}</p>
