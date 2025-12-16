@@ -525,19 +525,19 @@ const Home = () => {
           <img src={Paancorner1} alt="Paan corner banner" className='w-full h-[183px]' />
         </div>
 
-        <div>
-          <div>
-            <img src={Supersonic} alt="Supersonic banner" />
-          </div>
-          <div className='bg-black px-6 py-6 rounded-bl-[20px] rounded-br-[20px]'>
-            <Slider {...Imgsettings} >
-              {imgsettings.map((item, index) => (
-                <div key={index}>
-                  <img src={item} alt="Product item" className='w-[100px] h-[120px]' />
-                </div>
-              ))}
-            </Slider>
-          </div>
+        <div className='hover:cursor-pointer' onClick={() => navigate('/category/68afe6c08f87c75b3b5310cd')}>
+            <div>
+              <img src={Supersonic} alt="Supersonic banner" className='cursor-pointer' />
+            </div>
+            <div className='bg-black px-6 py-6 rounded-bl-[20px] rounded-br-[20px]'>
+              <Slider {...Imgsettings} >
+                {imgsettings.map((item, index) => (
+                  <div key={index} className='cursor-pointer'>
+                    <img src={item} alt="Product item" className='w-[100px] h-[120px]' />
+                  </div>
+                ))}
+              </Slider>
+            </div>
         </div>
 
         <div>
